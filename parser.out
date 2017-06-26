@@ -1,0 +1,976 @@
+Created by PLY version 3.9 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    GTET
+    DECRE
+    GT
+    ET
+    ALL
+
+Grammar
+
+Rule 0     S' -> statement
+Rule 1     statement -> FOR LPAR expression SEMC expression SEMC expression RPAR statement
+Rule 2     statement -> LCPAR statement RCPAR
+Rule 3     statement -> expression EQUALS expression SEMC
+Rule 4     statement -> expression EQUALS expression SEMC statement
+Rule 5     expression -> ID EQUALS NUMBER
+Rule 6     expression -> ID LTET NUMBER
+Rule 7     expression -> ID LT NUMBER
+Rule 8     expression -> ID INCRE
+Rule 9     expression -> ID expression
+Rule 10    expression -> LSPAR expression RSPAR expression
+Rule 11    expression -> LSPAR expression RSPAR
+Rule 12    statement -> expression
+Rule 13    expression -> ID
+Rule 14    expression -> NUMBER
+Rule 15    expression -> expression PLUS expression
+Rule 16    expression -> expression MINUS expression
+Rule 17    expression -> expression TIMES expression
+Rule 18    expression -> expression DIVIDE expression
+Rule 19    expression -> MINUS expression
+
+Terminals, with rules where they appear
+
+ALL                  : 
+DECRE                : 
+DIVIDE               : 18
+EQUALS               : 3 4 5
+ET                   : 
+FOR                  : 1
+GT                   : 
+GTET                 : 
+ID                   : 5 6 7 8 9 13
+INCRE                : 8
+LCPAR                : 2
+LPAR                 : 1
+LSPAR                : 10 11
+LT                   : 7
+LTET                 : 6
+MINUS                : 16 19
+NUMBER               : 5 6 7 14
+PLUS                 : 15
+RCPAR                : 2
+RPAR                 : 1
+RSPAR                : 10 11
+SEMC                 : 1 1 3 4
+TIMES                : 17
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 1 1 1 3 3 4 4 9 10 10 11 12 15 15 16 16 17 17 18 18 19
+statement            : 1 2 4 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statement
+    (1) statement -> . FOR LPAR expression SEMC expression SEMC expression RPAR statement
+    (2) statement -> . LCPAR statement RCPAR
+    (3) statement -> . expression EQUALS expression SEMC
+    (4) statement -> . expression EQUALS expression SEMC statement
+    (12) statement -> . expression
+    (5) expression -> . ID EQUALS NUMBER
+    (6) expression -> . ID LTET NUMBER
+    (7) expression -> . ID LT NUMBER
+    (8) expression -> . ID INCRE
+    (9) expression -> . ID expression
+    (10) expression -> . LSPAR expression RSPAR expression
+    (11) expression -> . LSPAR expression RSPAR
+    (13) expression -> . ID
+    (14) expression -> . NUMBER
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS expression
+    (17) expression -> . expression TIMES expression
+    (18) expression -> . expression DIVIDE expression
+    (19) expression -> . MINUS expression
+
+    FOR             shift and go to state 2
+    LCPAR           shift and go to state 8
+    ID              shift and go to state 6
+    LSPAR           shift and go to state 1
+    NUMBER          shift and go to state 4
+    MINUS           shift and go to state 3
+
+    expression                     shift and go to state 7
+    statement                      shift and go to state 5
+
+state 1
+
+    (10) expression -> LSPAR . expression RSPAR expression
+    (11) expression -> LSPAR . expression RSPAR
+    (5) expression -> . ID EQUALS NUMBER
+    (6) expression -> . ID LTET NUMBER
+    (7) expression -> . ID LT NUMBER
+    (8) expression -> . ID INCRE
+    (9) expression -> . ID expression
+    (10) expression -> . LSPAR expression RSPAR expression
+    (11) expression -> . LSPAR expression RSPAR
+    (13) expression -> . ID
+    (14) expression -> . NUMBER
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS expression
+    (17) expression -> . expression TIMES expression
+    (18) expression -> . expression DIVIDE expression
+    (19) expression -> . MINUS expression
+
+    ID              shift and go to state 6
+    LSPAR           shift and go to state 1
+    NUMBER          shift and go to state 4
+    MINUS           shift and go to state 3
+
+    expression                     shift and go to state 9
+
+state 2
+
+    (1) statement -> FOR . LPAR expression SEMC expression SEMC expression RPAR statement
+
+    LPAR            shift and go to state 10
+
+
+state 3
+
+    (19) expression -> MINUS . expression
+    (5) expression -> . ID EQUALS NUMBER
+    (6) expression -> . ID LTET NUMBER
+    (7) expression -> . ID LT NUMBER
+    (8) expression -> . ID INCRE
+    (9) expression -> . ID expression
+    (10) expression -> . LSPAR expression RSPAR expression
+    (11) expression -> . LSPAR expression RSPAR
+    (13) expression -> . ID
+    (14) expression -> . NUMBER
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS expression
+    (17) expression -> . expression TIMES expression
+    (18) expression -> . expression DIVIDE expression
+    (19) expression -> . MINUS expression
+
+    ID              shift and go to state 6
+    LSPAR           shift and go to state 1
+    NUMBER          shift and go to state 4
+    MINUS           shift and go to state 3
+
+    expression                     shift and go to state 11
+
+state 4
+
+    (14) expression -> NUMBER .
+
+    EQUALS          reduce using rule 14 (expression -> NUMBER .)
+    PLUS            reduce using rule 14 (expression -> NUMBER .)
+    MINUS           reduce using rule 14 (expression -> NUMBER .)
+    TIMES           reduce using rule 14 (expression -> NUMBER .)
+    DIVIDE          reduce using rule 14 (expression -> NUMBER .)
+    $end            reduce using rule 14 (expression -> NUMBER .)
+    RCPAR           reduce using rule 14 (expression -> NUMBER .)
+    RSPAR           reduce using rule 14 (expression -> NUMBER .)
+    SEMC            reduce using rule 14 (expression -> NUMBER .)
+    RPAR            reduce using rule 14 (expression -> NUMBER .)
+
+
+state 5
+
+    (0) S' -> statement .
+
+
+
+state 6
+
+    (5) expression -> ID . EQUALS NUMBER
+    (6) expression -> ID . LTET NUMBER
+    (7) expression -> ID . LT NUMBER
+    (8) expression -> ID . INCRE
+    (9) expression -> ID . expression
+    (13) expression -> ID .
+    (5) expression -> . ID EQUALS NUMBER
+    (6) expression -> . ID LTET NUMBER
+    (7) expression -> . ID LT NUMBER
+    (8) expression -> . ID INCRE
+    (9) expression -> . ID expression
+    (10) expression -> . LSPAR expression RSPAR expression
+    (11) expression -> . LSPAR expression RSPAR
+    (13) expression -> . ID
+    (14) expression -> . NUMBER
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS expression
+    (17) expression -> . expression TIMES expression
+    (18) expression -> . expression DIVIDE expression
+    (19) expression -> . MINUS expression
+
+  ! shift/reduce conflict for EQUALS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+    EQUALS          shift and go to state 12
+    LTET            shift and go to state 13
+    LT              shift and go to state 14
+    INCRE           shift and go to state 15
+    PLUS            reduce using rule 13 (expression -> ID .)
+    TIMES           reduce using rule 13 (expression -> ID .)
+    DIVIDE          reduce using rule 13 (expression -> ID .)
+    $end            reduce using rule 13 (expression -> ID .)
+    RCPAR           reduce using rule 13 (expression -> ID .)
+    RSPAR           reduce using rule 13 (expression -> ID .)
+    SEMC            reduce using rule 13 (expression -> ID .)
+    RPAR            reduce using rule 13 (expression -> ID .)
+    ID              shift and go to state 6
+    LSPAR           shift and go to state 1
+    NUMBER          shift and go to state 4
+    MINUS           shift and go to state 3
+
+  ! EQUALS          [ reduce using rule 13 (expression -> ID .) ]
+  ! MINUS           [ reduce using rule 13 (expression -> ID .) ]
+
+    expression                     shift and go to state 16
+
+state 7
+
+    (3) statement -> expression . EQUALS expression SEMC
+    (4) statement -> expression . EQUALS expression SEMC statement
+    (12) statement -> expression .
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS expression
+    (17) expression -> expression . TIMES expression
+    (18) expression -> expression . DIVIDE expression
+
+    EQUALS          shift and go to state 18
+    $end            reduce using rule 12 (statement -> expression .)
+    RCPAR           reduce using rule 12 (statement -> expression .)
+    PLUS            shift and go to state 20
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 17
+
+
+state 8
+
+    (2) statement -> LCPAR . statement RCPAR
+    (1) statement -> . FOR LPAR expression SEMC expression SEMC expression RPAR statement
+    (2) statement -> . LCPAR statement RCPAR
+    (3) statement -> . expression EQUALS expression SEMC
+    (4) statement -> . expression EQUALS expression SEMC statement
+    (12) statement -> . expression
+    (5) expression -> . ID EQUALS NUMBER
+    (6) expression -> . ID LTET NUMBER
+    (7) expression -> . ID LT NUMBER
+    (8) expression -> . ID INCRE
+    (9) expression -> . ID expression
+    (10) expression -> . LSPAR expression RSPAR expression
+    (11) expression -> . LSPAR expression RSPAR
+    (13) expression -> . ID
+    (14) expression -> . NUMBER
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS expression
+    (17) expression -> . expression TIMES expression
+    (18) expression -> . expression DIVIDE expression
+    (19) expression -> . MINUS expression
+
+    FOR             shift and go to state 2
+    LCPAR           shift and go to state 8
+    ID              shift and go to state 6
+    LSPAR           shift and go to state 1
+    NUMBER          shift and go to state 4
+    MINUS           shift and go to state 3
+
+    expression                     shift and go to state 7
+    statement                      shift and go to state 22
+
+state 9
+
+    (10) expression -> LSPAR expression . RSPAR expression
+    (11) expression -> LSPAR expression . RSPAR
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS expression
+    (17) expression -> expression . TIMES expression
+    (18) expression -> expression . DIVIDE expression
+
+    RSPAR           shift and go to state 23
+    PLUS            shift and go to state 20
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 17
+
+
+state 10
+
+    (1) statement -> FOR LPAR . expression SEMC expression SEMC expression RPAR statement
+    (5) expression -> . ID EQUALS NUMBER
+    (6) expression -> . ID LTET NUMBER
+    (7) expression -> . ID LT NUMBER
+    (8) expression -> . ID INCRE
+    (9) expression -> . ID expression
+    (10) expression -> . LSPAR expression RSPAR expression
+    (11) expression -> . LSPAR expression RSPAR
+    (13) expression -> . ID
+    (14) expression -> . NUMBER
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS expression
+    (17) expression -> . expression TIMES expression
+    (18) expression -> . expression DIVIDE expression
+    (19) expression -> . MINUS expression
+
+    ID              shift and go to state 6
+    LSPAR           shift and go to state 1
+    NUMBER          shift and go to state 4
+    MINUS           shift and go to state 3
+
+    expression                     shift and go to state 24
+
+state 11
+
+    (19) expression -> MINUS expression .
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS expression
+    (17) expression -> expression . TIMES expression
+    (18) expression -> expression . DIVIDE expression
+
+    EQUALS          reduce using rule 19 (expression -> MINUS expression .)
+    PLUS            reduce using rule 19 (expression -> MINUS expression .)
+    MINUS           reduce using rule 19 (expression -> MINUS expression .)
+    TIMES           reduce using rule 19 (expression -> MINUS expression .)
+    DIVIDE          reduce using rule 19 (expression -> MINUS expression .)
+    $end            reduce using rule 19 (expression -> MINUS expression .)
+    RCPAR           reduce using rule 19 (expression -> MINUS expression .)
+    RSPAR           reduce using rule 19 (expression -> MINUS expression .)
+    SEMC            reduce using rule 19 (expression -> MINUS expression .)
+    RPAR            reduce using rule 19 (expression -> MINUS expression .)
+
+  ! PLUS            [ shift and go to state 20 ]
+  ! MINUS           [ shift and go to state 21 ]
+  ! TIMES           [ shift and go to state 19 ]
+  ! DIVIDE          [ shift and go to state 17 ]
+
+
+state 12
+
+    (5) expression -> ID EQUALS . NUMBER
+
+    NUMBER          shift and go to state 25
+
+
+state 13
+
+    (6) expression -> ID LTET . NUMBER
+
+    NUMBER          shift and go to state 26
+
+
+state 14
+
+    (7) expression -> ID LT . NUMBER
+
+    NUMBER          shift and go to state 27
+
+
+state 15
+
+    (8) expression -> ID INCRE .
+
+    EQUALS          reduce using rule 8 (expression -> ID INCRE .)
+    PLUS            reduce using rule 8 (expression -> ID INCRE .)
+    MINUS           reduce using rule 8 (expression -> ID INCRE .)
+    TIMES           reduce using rule 8 (expression -> ID INCRE .)
+    DIVIDE          reduce using rule 8 (expression -> ID INCRE .)
+    $end            reduce using rule 8 (expression -> ID INCRE .)
+    RCPAR           reduce using rule 8 (expression -> ID INCRE .)
+    RSPAR           reduce using rule 8 (expression -> ID INCRE .)
+    SEMC            reduce using rule 8 (expression -> ID INCRE .)
+    RPAR            reduce using rule 8 (expression -> ID INCRE .)
+
+
+state 16
+
+    (9) expression -> ID expression .
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS expression
+    (17) expression -> expression . TIMES expression
+    (18) expression -> expression . DIVIDE expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+    EQUALS          reduce using rule 9 (expression -> ID expression .)
+    $end            reduce using rule 9 (expression -> ID expression .)
+    RCPAR           reduce using rule 9 (expression -> ID expression .)
+    RSPAR           reduce using rule 9 (expression -> ID expression .)
+    SEMC            reduce using rule 9 (expression -> ID expression .)
+    RPAR            reduce using rule 9 (expression -> ID expression .)
+    PLUS            shift and go to state 20
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 17
+
+  ! PLUS            [ reduce using rule 9 (expression -> ID expression .) ]
+  ! MINUS           [ reduce using rule 9 (expression -> ID expression .) ]
+  ! TIMES           [ reduce using rule 9 (expression -> ID expression .) ]
+  ! DIVIDE          [ reduce using rule 9 (expression -> ID expression .) ]
+
+
+state 17
+
+    (18) expression -> expression DIVIDE . expression
+    (5) expression -> . ID EQUALS NUMBER
+    (6) expression -> . ID LTET NUMBER
+    (7) expression -> . ID LT NUMBER
+    (8) expression -> . ID INCRE
+    (9) expression -> . ID expression
+    (10) expression -> . LSPAR expression RSPAR expression
+    (11) expression -> . LSPAR expression RSPAR
+    (13) expression -> . ID
+    (14) expression -> . NUMBER
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS expression
+    (17) expression -> . expression TIMES expression
+    (18) expression -> . expression DIVIDE expression
+    (19) expression -> . MINUS expression
+
+    ID              shift and go to state 6
+    LSPAR           shift and go to state 1
+    NUMBER          shift and go to state 4
+    MINUS           shift and go to state 3
+
+    expression                     shift and go to state 28
+
+state 18
+
+    (3) statement -> expression EQUALS . expression SEMC
+    (4) statement -> expression EQUALS . expression SEMC statement
+    (5) expression -> . ID EQUALS NUMBER
+    (6) expression -> . ID LTET NUMBER
+    (7) expression -> . ID LT NUMBER
+    (8) expression -> . ID INCRE
+    (9) expression -> . ID expression
+    (10) expression -> . LSPAR expression RSPAR expression
+    (11) expression -> . LSPAR expression RSPAR
+    (13) expression -> . ID
+    (14) expression -> . NUMBER
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS expression
+    (17) expression -> . expression TIMES expression
+    (18) expression -> . expression DIVIDE expression
+    (19) expression -> . MINUS expression
+
+    ID              shift and go to state 6
+    LSPAR           shift and go to state 1
+    NUMBER          shift and go to state 4
+    MINUS           shift and go to state 3
+
+    expression                     shift and go to state 29
+
+state 19
+
+    (17) expression -> expression TIMES . expression
+    (5) expression -> . ID EQUALS NUMBER
+    (6) expression -> . ID LTET NUMBER
+    (7) expression -> . ID LT NUMBER
+    (8) expression -> . ID INCRE
+    (9) expression -> . ID expression
+    (10) expression -> . LSPAR expression RSPAR expression
+    (11) expression -> . LSPAR expression RSPAR
+    (13) expression -> . ID
+    (14) expression -> . NUMBER
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS expression
+    (17) expression -> . expression TIMES expression
+    (18) expression -> . expression DIVIDE expression
+    (19) expression -> . MINUS expression
+
+    ID              shift and go to state 6
+    LSPAR           shift and go to state 1
+    NUMBER          shift and go to state 4
+    MINUS           shift and go to state 3
+
+    expression                     shift and go to state 30
+
+state 20
+
+    (15) expression -> expression PLUS . expression
+    (5) expression -> . ID EQUALS NUMBER
+    (6) expression -> . ID LTET NUMBER
+    (7) expression -> . ID LT NUMBER
+    (8) expression -> . ID INCRE
+    (9) expression -> . ID expression
+    (10) expression -> . LSPAR expression RSPAR expression
+    (11) expression -> . LSPAR expression RSPAR
+    (13) expression -> . ID
+    (14) expression -> . NUMBER
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS expression
+    (17) expression -> . expression TIMES expression
+    (18) expression -> . expression DIVIDE expression
+    (19) expression -> . MINUS expression
+
+    ID              shift and go to state 6
+    LSPAR           shift and go to state 1
+    NUMBER          shift and go to state 4
+    MINUS           shift and go to state 3
+
+    expression                     shift and go to state 31
+
+state 21
+
+    (16) expression -> expression MINUS . expression
+    (5) expression -> . ID EQUALS NUMBER
+    (6) expression -> . ID LTET NUMBER
+    (7) expression -> . ID LT NUMBER
+    (8) expression -> . ID INCRE
+    (9) expression -> . ID expression
+    (10) expression -> . LSPAR expression RSPAR expression
+    (11) expression -> . LSPAR expression RSPAR
+    (13) expression -> . ID
+    (14) expression -> . NUMBER
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS expression
+    (17) expression -> . expression TIMES expression
+    (18) expression -> . expression DIVIDE expression
+    (19) expression -> . MINUS expression
+
+    ID              shift and go to state 6
+    LSPAR           shift and go to state 1
+    NUMBER          shift and go to state 4
+    MINUS           shift and go to state 3
+
+    expression                     shift and go to state 32
+
+state 22
+
+    (2) statement -> LCPAR statement . RCPAR
+
+    RCPAR           shift and go to state 33
+
+
+state 23
+
+    (10) expression -> LSPAR expression RSPAR . expression
+    (11) expression -> LSPAR expression RSPAR .
+    (5) expression -> . ID EQUALS NUMBER
+    (6) expression -> . ID LTET NUMBER
+    (7) expression -> . ID LT NUMBER
+    (8) expression -> . ID INCRE
+    (9) expression -> . ID expression
+    (10) expression -> . LSPAR expression RSPAR expression
+    (11) expression -> . LSPAR expression RSPAR
+    (13) expression -> . ID
+    (14) expression -> . NUMBER
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS expression
+    (17) expression -> . expression TIMES expression
+    (18) expression -> . expression DIVIDE expression
+    (19) expression -> . MINUS expression
+
+  ! shift/reduce conflict for MINUS resolved as shift
+    EQUALS          reduce using rule 11 (expression -> LSPAR expression RSPAR .)
+    PLUS            reduce using rule 11 (expression -> LSPAR expression RSPAR .)
+    TIMES           reduce using rule 11 (expression -> LSPAR expression RSPAR .)
+    DIVIDE          reduce using rule 11 (expression -> LSPAR expression RSPAR .)
+    $end            reduce using rule 11 (expression -> LSPAR expression RSPAR .)
+    RCPAR           reduce using rule 11 (expression -> LSPAR expression RSPAR .)
+    RSPAR           reduce using rule 11 (expression -> LSPAR expression RSPAR .)
+    SEMC            reduce using rule 11 (expression -> LSPAR expression RSPAR .)
+    RPAR            reduce using rule 11 (expression -> LSPAR expression RSPAR .)
+    ID              shift and go to state 6
+    LSPAR           shift and go to state 1
+    NUMBER          shift and go to state 4
+    MINUS           shift and go to state 3
+
+  ! MINUS           [ reduce using rule 11 (expression -> LSPAR expression RSPAR .) ]
+
+    expression                     shift and go to state 34
+
+state 24
+
+    (1) statement -> FOR LPAR expression . SEMC expression SEMC expression RPAR statement
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS expression
+    (17) expression -> expression . TIMES expression
+    (18) expression -> expression . DIVIDE expression
+
+    SEMC            shift and go to state 35
+    PLUS            shift and go to state 20
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 17
+
+
+state 25
+
+    (5) expression -> ID EQUALS NUMBER .
+
+    EQUALS          reduce using rule 5 (expression -> ID EQUALS NUMBER .)
+    PLUS            reduce using rule 5 (expression -> ID EQUALS NUMBER .)
+    MINUS           reduce using rule 5 (expression -> ID EQUALS NUMBER .)
+    TIMES           reduce using rule 5 (expression -> ID EQUALS NUMBER .)
+    DIVIDE          reduce using rule 5 (expression -> ID EQUALS NUMBER .)
+    $end            reduce using rule 5 (expression -> ID EQUALS NUMBER .)
+    RCPAR           reduce using rule 5 (expression -> ID EQUALS NUMBER .)
+    RSPAR           reduce using rule 5 (expression -> ID EQUALS NUMBER .)
+    SEMC            reduce using rule 5 (expression -> ID EQUALS NUMBER .)
+    RPAR            reduce using rule 5 (expression -> ID EQUALS NUMBER .)
+
+
+state 26
+
+    (6) expression -> ID LTET NUMBER .
+
+    EQUALS          reduce using rule 6 (expression -> ID LTET NUMBER .)
+    PLUS            reduce using rule 6 (expression -> ID LTET NUMBER .)
+    MINUS           reduce using rule 6 (expression -> ID LTET NUMBER .)
+    TIMES           reduce using rule 6 (expression -> ID LTET NUMBER .)
+    DIVIDE          reduce using rule 6 (expression -> ID LTET NUMBER .)
+    $end            reduce using rule 6 (expression -> ID LTET NUMBER .)
+    RCPAR           reduce using rule 6 (expression -> ID LTET NUMBER .)
+    RSPAR           reduce using rule 6 (expression -> ID LTET NUMBER .)
+    SEMC            reduce using rule 6 (expression -> ID LTET NUMBER .)
+    RPAR            reduce using rule 6 (expression -> ID LTET NUMBER .)
+
+
+state 27
+
+    (7) expression -> ID LT NUMBER .
+
+    EQUALS          reduce using rule 7 (expression -> ID LT NUMBER .)
+    PLUS            reduce using rule 7 (expression -> ID LT NUMBER .)
+    MINUS           reduce using rule 7 (expression -> ID LT NUMBER .)
+    TIMES           reduce using rule 7 (expression -> ID LT NUMBER .)
+    DIVIDE          reduce using rule 7 (expression -> ID LT NUMBER .)
+    $end            reduce using rule 7 (expression -> ID LT NUMBER .)
+    RCPAR           reduce using rule 7 (expression -> ID LT NUMBER .)
+    RSPAR           reduce using rule 7 (expression -> ID LT NUMBER .)
+    SEMC            reduce using rule 7 (expression -> ID LT NUMBER .)
+    RPAR            reduce using rule 7 (expression -> ID LT NUMBER .)
+
+
+state 28
+
+    (18) expression -> expression DIVIDE expression .
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS expression
+    (17) expression -> expression . TIMES expression
+    (18) expression -> expression . DIVIDE expression
+
+    EQUALS          reduce using rule 18 (expression -> expression DIVIDE expression .)
+    PLUS            reduce using rule 18 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 18 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 18 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 18 (expression -> expression DIVIDE expression .)
+    $end            reduce using rule 18 (expression -> expression DIVIDE expression .)
+    RCPAR           reduce using rule 18 (expression -> expression DIVIDE expression .)
+    RSPAR           reduce using rule 18 (expression -> expression DIVIDE expression .)
+    SEMC            reduce using rule 18 (expression -> expression DIVIDE expression .)
+    RPAR            reduce using rule 18 (expression -> expression DIVIDE expression .)
+
+  ! PLUS            [ shift and go to state 20 ]
+  ! MINUS           [ shift and go to state 21 ]
+  ! TIMES           [ shift and go to state 19 ]
+  ! DIVIDE          [ shift and go to state 17 ]
+
+
+state 29
+
+    (3) statement -> expression EQUALS expression . SEMC
+    (4) statement -> expression EQUALS expression . SEMC statement
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS expression
+    (17) expression -> expression . TIMES expression
+    (18) expression -> expression . DIVIDE expression
+
+    SEMC            shift and go to state 36
+    PLUS            shift and go to state 20
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 17
+
+
+state 30
+
+    (17) expression -> expression TIMES expression .
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS expression
+    (17) expression -> expression . TIMES expression
+    (18) expression -> expression . DIVIDE expression
+
+    EQUALS          reduce using rule 17 (expression -> expression TIMES expression .)
+    PLUS            reduce using rule 17 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 17 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 17 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 17 (expression -> expression TIMES expression .)
+    $end            reduce using rule 17 (expression -> expression TIMES expression .)
+    RCPAR           reduce using rule 17 (expression -> expression TIMES expression .)
+    RSPAR           reduce using rule 17 (expression -> expression TIMES expression .)
+    SEMC            reduce using rule 17 (expression -> expression TIMES expression .)
+    RPAR            reduce using rule 17 (expression -> expression TIMES expression .)
+
+  ! PLUS            [ shift and go to state 20 ]
+  ! MINUS           [ shift and go to state 21 ]
+  ! TIMES           [ shift and go to state 19 ]
+  ! DIVIDE          [ shift and go to state 17 ]
+
+
+state 31
+
+    (15) expression -> expression PLUS expression .
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS expression
+    (17) expression -> expression . TIMES expression
+    (18) expression -> expression . DIVIDE expression
+
+    EQUALS          reduce using rule 15 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 15 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 15 (expression -> expression PLUS expression .)
+    $end            reduce using rule 15 (expression -> expression PLUS expression .)
+    RCPAR           reduce using rule 15 (expression -> expression PLUS expression .)
+    RSPAR           reduce using rule 15 (expression -> expression PLUS expression .)
+    SEMC            reduce using rule 15 (expression -> expression PLUS expression .)
+    RPAR            reduce using rule 15 (expression -> expression PLUS expression .)
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 17
+
+  ! TIMES           [ reduce using rule 15 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 15 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 20 ]
+  ! MINUS           [ shift and go to state 21 ]
+
+
+state 32
+
+    (16) expression -> expression MINUS expression .
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS expression
+    (17) expression -> expression . TIMES expression
+    (18) expression -> expression . DIVIDE expression
+
+    EQUALS          reduce using rule 16 (expression -> expression MINUS expression .)
+    PLUS            reduce using rule 16 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 16 (expression -> expression MINUS expression .)
+    $end            reduce using rule 16 (expression -> expression MINUS expression .)
+    RCPAR           reduce using rule 16 (expression -> expression MINUS expression .)
+    RSPAR           reduce using rule 16 (expression -> expression MINUS expression .)
+    SEMC            reduce using rule 16 (expression -> expression MINUS expression .)
+    RPAR            reduce using rule 16 (expression -> expression MINUS expression .)
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 17
+
+  ! TIMES           [ reduce using rule 16 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 16 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 20 ]
+  ! MINUS           [ shift and go to state 21 ]
+
+
+state 33
+
+    (2) statement -> LCPAR statement RCPAR .
+
+    $end            reduce using rule 2 (statement -> LCPAR statement RCPAR .)
+    RCPAR           reduce using rule 2 (statement -> LCPAR statement RCPAR .)
+
+
+state 34
+
+    (10) expression -> LSPAR expression RSPAR expression .
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS expression
+    (17) expression -> expression . TIMES expression
+    (18) expression -> expression . DIVIDE expression
+
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for TIMES resolved as shift
+  ! shift/reduce conflict for DIVIDE resolved as shift
+    EQUALS          reduce using rule 10 (expression -> LSPAR expression RSPAR expression .)
+    $end            reduce using rule 10 (expression -> LSPAR expression RSPAR expression .)
+    RCPAR           reduce using rule 10 (expression -> LSPAR expression RSPAR expression .)
+    RSPAR           reduce using rule 10 (expression -> LSPAR expression RSPAR expression .)
+    SEMC            reduce using rule 10 (expression -> LSPAR expression RSPAR expression .)
+    RPAR            reduce using rule 10 (expression -> LSPAR expression RSPAR expression .)
+    PLUS            shift and go to state 20
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 17
+
+  ! PLUS            [ reduce using rule 10 (expression -> LSPAR expression RSPAR expression .) ]
+  ! MINUS           [ reduce using rule 10 (expression -> LSPAR expression RSPAR expression .) ]
+  ! TIMES           [ reduce using rule 10 (expression -> LSPAR expression RSPAR expression .) ]
+  ! DIVIDE          [ reduce using rule 10 (expression -> LSPAR expression RSPAR expression .) ]
+
+
+state 35
+
+    (1) statement -> FOR LPAR expression SEMC . expression SEMC expression RPAR statement
+    (5) expression -> . ID EQUALS NUMBER
+    (6) expression -> . ID LTET NUMBER
+    (7) expression -> . ID LT NUMBER
+    (8) expression -> . ID INCRE
+    (9) expression -> . ID expression
+    (10) expression -> . LSPAR expression RSPAR expression
+    (11) expression -> . LSPAR expression RSPAR
+    (13) expression -> . ID
+    (14) expression -> . NUMBER
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS expression
+    (17) expression -> . expression TIMES expression
+    (18) expression -> . expression DIVIDE expression
+    (19) expression -> . MINUS expression
+
+    ID              shift and go to state 6
+    LSPAR           shift and go to state 1
+    NUMBER          shift and go to state 4
+    MINUS           shift and go to state 3
+
+    expression                     shift and go to state 37
+
+state 36
+
+    (3) statement -> expression EQUALS expression SEMC .
+    (4) statement -> expression EQUALS expression SEMC . statement
+    (1) statement -> . FOR LPAR expression SEMC expression SEMC expression RPAR statement
+    (2) statement -> . LCPAR statement RCPAR
+    (3) statement -> . expression EQUALS expression SEMC
+    (4) statement -> . expression EQUALS expression SEMC statement
+    (12) statement -> . expression
+    (5) expression -> . ID EQUALS NUMBER
+    (6) expression -> . ID LTET NUMBER
+    (7) expression -> . ID LT NUMBER
+    (8) expression -> . ID INCRE
+    (9) expression -> . ID expression
+    (10) expression -> . LSPAR expression RSPAR expression
+    (11) expression -> . LSPAR expression RSPAR
+    (13) expression -> . ID
+    (14) expression -> . NUMBER
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS expression
+    (17) expression -> . expression TIMES expression
+    (18) expression -> . expression DIVIDE expression
+    (19) expression -> . MINUS expression
+
+    $end            reduce using rule 3 (statement -> expression EQUALS expression SEMC .)
+    RCPAR           reduce using rule 3 (statement -> expression EQUALS expression SEMC .)
+    FOR             shift and go to state 2
+    LCPAR           shift and go to state 8
+    ID              shift and go to state 6
+    LSPAR           shift and go to state 1
+    NUMBER          shift and go to state 4
+    MINUS           shift and go to state 3
+
+    expression                     shift and go to state 7
+    statement                      shift and go to state 38
+
+state 37
+
+    (1) statement -> FOR LPAR expression SEMC expression . SEMC expression RPAR statement
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS expression
+    (17) expression -> expression . TIMES expression
+    (18) expression -> expression . DIVIDE expression
+
+    SEMC            shift and go to state 39
+    PLUS            shift and go to state 20
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 17
+
+
+state 38
+
+    (4) statement -> expression EQUALS expression SEMC statement .
+
+    $end            reduce using rule 4 (statement -> expression EQUALS expression SEMC statement .)
+    RCPAR           reduce using rule 4 (statement -> expression EQUALS expression SEMC statement .)
+
+
+state 39
+
+    (1) statement -> FOR LPAR expression SEMC expression SEMC . expression RPAR statement
+    (5) expression -> . ID EQUALS NUMBER
+    (6) expression -> . ID LTET NUMBER
+    (7) expression -> . ID LT NUMBER
+    (8) expression -> . ID INCRE
+    (9) expression -> . ID expression
+    (10) expression -> . LSPAR expression RSPAR expression
+    (11) expression -> . LSPAR expression RSPAR
+    (13) expression -> . ID
+    (14) expression -> . NUMBER
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS expression
+    (17) expression -> . expression TIMES expression
+    (18) expression -> . expression DIVIDE expression
+    (19) expression -> . MINUS expression
+
+    ID              shift and go to state 6
+    LSPAR           shift and go to state 1
+    NUMBER          shift and go to state 4
+    MINUS           shift and go to state 3
+
+    expression                     shift and go to state 40
+
+state 40
+
+    (1) statement -> FOR LPAR expression SEMC expression SEMC expression . RPAR statement
+    (15) expression -> expression . PLUS expression
+    (16) expression -> expression . MINUS expression
+    (17) expression -> expression . TIMES expression
+    (18) expression -> expression . DIVIDE expression
+
+    RPAR            shift and go to state 41
+    PLUS            shift and go to state 20
+    MINUS           shift and go to state 21
+    TIMES           shift and go to state 19
+    DIVIDE          shift and go to state 17
+
+
+state 41
+
+    (1) statement -> FOR LPAR expression SEMC expression SEMC expression RPAR . statement
+    (1) statement -> . FOR LPAR expression SEMC expression SEMC expression RPAR statement
+    (2) statement -> . LCPAR statement RCPAR
+    (3) statement -> . expression EQUALS expression SEMC
+    (4) statement -> . expression EQUALS expression SEMC statement
+    (12) statement -> . expression
+    (5) expression -> . ID EQUALS NUMBER
+    (6) expression -> . ID LTET NUMBER
+    (7) expression -> . ID LT NUMBER
+    (8) expression -> . ID INCRE
+    (9) expression -> . ID expression
+    (10) expression -> . LSPAR expression RSPAR expression
+    (11) expression -> . LSPAR expression RSPAR
+    (13) expression -> . ID
+    (14) expression -> . NUMBER
+    (15) expression -> . expression PLUS expression
+    (16) expression -> . expression MINUS expression
+    (17) expression -> . expression TIMES expression
+    (18) expression -> . expression DIVIDE expression
+    (19) expression -> . MINUS expression
+
+    FOR             shift and go to state 2
+    LCPAR           shift and go to state 8
+    ID              shift and go to state 6
+    LSPAR           shift and go to state 1
+    NUMBER          shift and go to state 4
+    MINUS           shift and go to state 3
+
+    expression                     shift and go to state 7
+    statement                      shift and go to state 42
+
+state 42
+
+    (1) statement -> FOR LPAR expression SEMC expression SEMC expression RPAR statement .
+
+    $end            reduce using rule 1 (statement -> FOR LPAR expression SEMC expression SEMC expression RPAR statement .)
+    RCPAR           reduce using rule 1 (statement -> FOR LPAR expression SEMC expression SEMC expression RPAR statement .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for EQUALS in state 6 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 6 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 16 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 16 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 16 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 16 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 23 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 34 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 34 resolved as shift
+WARNING: shift/reduce conflict for TIMES in state 34 resolved as shift
+WARNING: shift/reduce conflict for DIVIDE in state 34 resolved as shift
